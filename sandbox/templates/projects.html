@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>All Projects</h2>
+
+    <!-- Filters -->
+    <form method="get" class="mb-4">
+        <select name="language">
+            {% for lang in languages %}
+                <option value="{{ lang }}" {% if lang == selected_language %}selected{% endif %}>{{ lang }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="database">
+            {% for db in databases %}
+                <option value="{{ db }}" {% if db == selected_database %}selected{% endif %}>{{ db }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="origin">
+            {% for org in origins %}
+                <option value="{{ org }}" {% if org == selected_origin %}selected{% endif %}>{{ org }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+
+    <!-- Project list -->
+    {% if projects %}
+        <div class="row">
+            {% for project in projects %}
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ project.title }}</h5>
+                            <p class="card-text">{{ project.description|truncatewords:20 }}</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Language:</strong> {{ project.language }}</li>
+                            <li class="list-group-item"><strong>Database:</strong> {{ project.database }}</li>
+                            <li class="list-group-item"><strong>Origin:</strong> {{ project.origin }}</li>
+                            <li class="list-group-item"><strong>Author:</strong> {{ project.author.username }}</li>
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No projects yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

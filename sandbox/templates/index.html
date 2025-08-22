@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Sandbox{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Welcome to Sandbox</h2>
+<p class="lead">Explore amazing projects built by our community.</p>
+
+<div class="row">
+    <!-- Example Project Card 1 -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title">First Project</h5>
+                <p class="card-text">This is a sample description of the first project.</p>
+                <p class="text-muted">by <strong>User1</strong></p>
+                <a href="/project/1" class="btn btn-primary">View More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example Project Card 2 -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title">Second Project</h5>
+                <p class="card-text">Another sample project for display.</p>
+                <p class="text-muted">by <strong>User2</strong></p>
+                <a href="/project/2" class="btn btn-primary">View More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example Project Card 3 -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title">Third Project</h5>
+                <p class="card-text">This is the third example project.</p>
+                <p class="text-muted">by <strong>User3</strong></p>
+                <a href="/project/3" class="btn btn-primary">View More</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
